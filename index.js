@@ -10,6 +10,15 @@ app.use(cors());
 // Middleware to parse JSON bodies
 app.use(e.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "React app URL"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 const token = `02wQv02mBmqK-7REQJIWuPZ2kB45y4IVoPeAQU6LCLX_P3mziQ_RCeKwU6_tIclsKwu9NJ0Qw2IkG06TG3_pXSHwm48_8`
 
 async function Request(url, Auth) {
