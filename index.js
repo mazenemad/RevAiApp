@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 //   res.send();
 // });
-const token = `02wQv02mBmqK-7REQJIWuPZ2kB45y4IVoPeAQU6LCLX_P3mziQ_RCeKwU6_tIclsKwu9NJ0Qw2IkG06TG3_pXSHwm48_8`
 
 async function Request(url, Auth) {
   let data = ({
