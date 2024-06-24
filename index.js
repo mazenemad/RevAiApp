@@ -35,7 +35,7 @@ async function Request(url, Auth) {
   return req.data
 }
 
-const GetText = async (id,Auth) => {
+const GetText = async (id, Auth) => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
@@ -46,29 +46,22 @@ const GetText = async (id,Auth) => {
     }
   };
   let res = await axios.request(config)
-  console.log(res)
   return res.data
 
 }
 
 app.post('/api/requestTrans', async (req, res) => {
   const { url, Auth } = req.body;
-  try {
-    let data = await Request(url, Auth)
-    res.json({ message: { "data": data } })
-  } catch (error) {
-    res.json({ message: { "error": error } })
-  }
+  let data = await Request(url, Auth)
+  res.json({ message: { "data": data } })
+
 });
 
 app.get('/api/getData', async (req, res) => {
   const { id, Auth } = req.body;
-  try {
-    let data = await GetText(id, Auth)
-    res.json({ message: { "data": data } })
-  } catch (error) {
-    res.json({ message: { "error": error } })
-  }
+  let data = await GetText(id, Auth)
+  res.json({ message: { "data": data } })
+
 });
 
 // Start the server
