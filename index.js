@@ -62,7 +62,7 @@ const GetText = async (id, Auth) => {
 app.post('/api/requestTrans', async (req, res) => {
   const { url, Auth } = req.body;
   if (!url || !Auth)
-    res.json({ message: { "error": 'please provide' } })
+    res.json({ message: { "error": 'please provide url and Auth' } })
   let data = await Request(url, Auth)
   try {
     res.json({ message: { "data": data } })
@@ -71,10 +71,10 @@ app.post('/api/requestTrans', async (req, res) => {
   }
 });
 
-app.get('/api/getData', async (req, res) => {
+app.post('/api/getData', async (req, res) => {
   const { id, Auth } = req.body;
   if (!id || !Auth)
-    res.json({ message: { "error": 'please provide' } })
+    res.json({ message: { "error": 'please provide url and Auth' } })
   console.log(id, Auth)
   let data = await GetText(id, Auth)
   try {
@@ -87,7 +87,7 @@ app.get('/api/getData', async (req, res) => {
 app.post('/api/test', async (req, res) => {
   const { id, Auth } = req.body;
   if (!id || !Auth)
-    res.json({ message: { "error": 'please provide' } })
+    res.json({ message: { "error": 'please provide url and Auth' } })
   else
     res.json({ message: { "message": { id, Auth } } })
 
